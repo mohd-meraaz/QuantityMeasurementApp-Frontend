@@ -1,12 +1,30 @@
+/* --- Base Resets (Replacing @tailwind base) --- */
+*, ::before, ::after {
+    box-sizing: border-box;
+    border-width: 0;
+    border-style: solid;
+    border-color: #e5e7eb;
+}
+
+html {
+    line-height: 1.5;
+    -webkit-text-size-adjust: 100%;
+    -moz-tab-size: 4;
+    tab-size: 4;
+    font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+}
+
+/* --- Variable Definitions --- */
 :root {
-    --primary: #4a6cf7;
-    --bg: #f8f9fd;
+    --primary: #8b5cf6;
+    --bg: #faf5ff;
     --card-bg: #ffffff;
     --text-main: #2d3436;
     --text-muted: #636e72;
-    --shadow: 0 10px 25px rgba(0,0,0,0.05);
+    --shadow: 0 10px 25px rgba(139, 92, 246, 0.08);
 }
 
+/* --- Global Styles --- */
 body {
     font-family: 'Segoe UI', Roboto, sans-serif;
     background: var(--bg);
@@ -14,10 +32,12 @@ body {
     color: var(--text-main);
 }
 
+/* --- Layout Components --- */
 .header {
-    background: var(--primary);
-    /* padding: 1rem 2rem; */
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
     color: white;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 4px 12px rgba(139, 92, 246, 0.15);
 }
 
 .header-content {
@@ -28,42 +48,42 @@ body {
     align-items: center;
 }
 
-.main-wrapper{
+.main-wrapper {
     max-width: 1000px;
     margin: 40px auto;
-    /* padding: 0 20px; */
+    padding: 0 20px;
+}
+
+/* --- Section Styles --- */
+.section {
+    margin-bottom: 2rem; /* Added some spacing here */
 }
 
 .section-title {
     font-size: 0.85rem;
+    text-transform: uppercase;
     letter-spacing: 1px;
     color: var(--text-muted);
-    /* margin-bottom: 20px; */
+    margin-bottom: 1rem;
 }
 
-/* Type Grid */
-/* Type Grid - Centers the items */
+/* --- Type Cards & Grids --- */
 .type-grid {
     display: flex;
-    justify-content: center; /* Centers the circles */
+    justify-content: center;
     flex-wrap: wrap;
     gap: 30px;
-    /* margin-bottom: 40px; */
 }
 
 .type-card {
     background: var(--card-bg);
-    /* Fixed dimensions for a perfect small circle */
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    
-    /* Centering content */
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    
     cursor: pointer;
     transition: all 0.3s ease;
     box-shadow: var(--shadow);
@@ -77,31 +97,33 @@ body {
 }
 
 .icon-box {
-    font-size: 1.5rem; /* Makes the emoji/icon a good size */
-    margin: 0; /* Remove the bottom margin from before */
-    width: auto;
-    height: auto;
+    font-size: 1.5rem;
 }
 
 .type-card:hover {
     transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(74, 108, 247, 0.15);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.25);
+    border-color: #c4b5fd;
 }
 
 .type-card.active {
-    border-color: #2ed573;
-    background: #f0fff4;
-    color: #2ed573;
+    border-color: #8b5cf6;
+    background: #f5f3ff;
+    color: #8b5cf6;
 }
-/* Action Buttons */
+
+/* --- Action Buttons --- */
 .action-grid {
     display: flex;
     gap: 15px;
     margin-bottom: 40px;
+    min-height: 52px;
+    flex-wrap: wrap;
 }
 
 .action-btn {
     flex: 1;
+    min-width: 120px;
     padding: 15px;
     border: none;
     background: white;
@@ -109,15 +131,22 @@ body {
     font-weight: 600;
     cursor: pointer;
     box-shadow: var(--shadow);
-    transition: 0.3s;
+    transition: all 0.3s ease;
+    color: var(--text-main);
+}
+
+.action-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 15px 25px rgba(139, 92, 246, 0.15);
 }
 
 .action-btn.active {
-    background: var(--primary);
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
     color: white;
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
 }
 
-/* Calculator Card */
+/* --- Calculator Form --- */
 .calculator-card {
     background: white;
     padding: 30px;
@@ -144,39 +173,46 @@ body {
     margin-bottom: 10px;
 }
 
-.input-field input, .input-field select {
+.input-field input, 
+.input-field select {
     padding: 15px;
     border: 1px solid #dfe6e9;
     border-radius: 4px;
     font-size: 1.2rem;
     outline: none;
+    background-color: white;
 }
 
-.operator-box {
-    background: #f1f2f6;
-    /* padding: 15px; */
-    border-radius: 4px;
-    font-weight: bold;
+.input-field input:focus, 
+.input-field select:focus {
+    border-color: var(--primary);
 }
 
 .calculate-btn {
     width: 100%;
     margin-top: 30px;
     padding: 15px;
-    background: var(--primary);
-    color: rgb(255, 0, 0);
+    background: linear-gradient(135deg, #8b5cf6 0%, #a78bfa 100%);
+    color: white;
     border: none;
     border-radius: 8px;
     font-size: 1rem;
     font-weight: bold;
     cursor: pointer;
+    transition: all 0.3s ease;
 }
 
+.calculate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(139, 92, 246, 0.3);
+}
+
+/* --- Results & UI Elements --- */
 .result-display {
     margin-top: 30px;
     padding: 20px;
-    border-left: 4px solid #2ed573;
-    background: #fafffb;
+    border-left: 4px solid #8b5cf6;
+    background: #faf5ff;
 }
 
 .result-row {
@@ -191,49 +227,22 @@ body {
     color: var(--primary);
 }
 
-.operator-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    min-width: 60px;
-}
-
 .operator-dropdown {
     padding: 10px;
     border: 1px solid #dfe6e9;
     border-radius: 8px;
-    background: #f1f2f6;
+    background: #f5f3ff;
     font-weight: bold;
     font-size: 1.2rem;
     cursor: pointer;
-    text-align: center;
-}
-
-.operator-box {
-    background: #f1f2f6;
-    height: 45px;
-    width: 60px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 8px;
-    font-weight: bold;
-    color: var(--primary);
-}
-
-/* Ensure result looks clean */
-#result-unit-label {
-    font-weight: 600;
-    color: var(--text-muted);
-    text-transform: lowercase;
 }
 
 .error-banner {
-    background-color: #ffeded;
-    color: #d63031;
+    background-color: #faf5ff;
+    color: #7c3aed;
     padding: 15px;
     border-radius: 8px;
-    border: 1px solid #fab1a0;
+    border: 1px solid #c4b5fd;
     margin-bottom: 20px;
     text-align: center;
     font-weight: bold;
