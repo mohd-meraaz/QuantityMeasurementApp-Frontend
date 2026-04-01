@@ -89,31 +89,11 @@ UI Update
 
 ---
 
-## 📂 Project Structure
-
-```text
-src/
-│
-├── app/
-│   ├── components/
-│   ├── services/
-│   ├── models/
-│   ├── guards/
-│   ├── interceptors/
-│   ├── app-routing.module.ts
-│   └── app.module.ts
-│
-├── assets/
-├── environments/
-└── styles.scss
-```
-
----
 
 ## 🚀 How to Run
 
 ```bash
-git clone <your-repo-url>
+git clone https://github.com/mohd-meraaz/QuantityMeasurementApp-Frontend
 cd <project-folder>
 npm install
 ng serve
