@@ -2,13 +2,16 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
+import { environment } from '../../environment/environment';
+
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
-  private http = inject(HttpClient);
-  private router = inject(Router);
-  private apiUrl = 'http://quantitymeasurementapp-production-387c.up.railway.app/auth/user';
-  private googleAuthUrl = 'http://quantitymeasurementapp-production-387c.up.railway.app/auth/google';
+ private http = inject(HttpClient);
+private router = inject(Router);
+
+private apiUrl = `${environment.gatewayUrl}/auth/user`;
+private googleAuthUrl = `${environment.gatewayUrl}/auth/google`;
 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);

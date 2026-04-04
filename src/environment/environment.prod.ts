@@ -1,6 +1,6 @@
 export const environment = {
   production: true,
-  gatewayUrl: 'https://api.yourdomain.com', // Your real server
-  googleClientId: '880694243289-hmeu169t5g1etinlqr8td1cv9crfb0gq.apps.googleusercontent.com',
-  googleRedirectUri: 'https://yourdomain.com/auth'
+  gatewayUrl: 'https://quantitymeasurementapp-production-387c.up.railway.app',
+  googleClientId: '918583838409-p07mh53r3bbhm478nnce7g9kf2o2h863.apps.googleusercontent',
+  googleRedirectUri: 'https://quantity-measurement-app-frontend-ruby.vercel.app/auth'
 };
