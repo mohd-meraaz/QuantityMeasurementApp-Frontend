@@ -7,8 +7,8 @@ import { Observable, tap } from 'rxjs';
 export class AuthService {
   private http = inject(HttpClient);
   private router = inject(Router);
-  private apiUrl = 'http://localhost:8080/auth/user';
-  private googleAuthUrl = 'http://localhost:8080/auth/google';
+  private apiUrl = 'http://quantitymeasurementapp-production-387c.up.railway.app/auth/user';
+  private googleAuthUrl = 'http://quantitymeasurementapp-production-387c.up.railway.app/auth/google';
 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);
