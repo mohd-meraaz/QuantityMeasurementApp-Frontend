@@ -2,16 +2,14 @@ import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Router } from '@angular/router';
 import { Observable, tap } from 'rxjs';
-import { environment } from '../../environment/environment';
-
+import { environment } from '../../environments/environment';
 
 @Injectable({ providedIn: 'root' })
 export class AuthService {
- private http = inject(HttpClient);
-private router = inject(Router);
-
-private apiUrl = `${environment.gatewayUrl}/auth/user`;
-private googleAuthUrl = `${environment.gatewayUrl}/auth/google`;
+  private http = inject(HttpClient);
+  private router = inject(Router);
+  private apiUrl = `${environment.gatewayUrl}/auth/user`;
+  private googleAuthUrl = `${environment.gatewayUrl}/auth/google`;
 
   register(userData: any): Observable<any> {
     return this.http.post(`${this.apiUrl}/register`, userData);
@@ -39,8 +37,8 @@ private googleAuthUrl = `${environment.gatewayUrl}/auth/google`;
   }
 
   initiateGoogleLogin() {
-    const clientId = '880694243289-hmeu169t5g1etinlqr8td1cv9crfb0gq.apps.googleusercontent.com';
-    const redirectUri = 'http://localhost:4200/auth'; // Points back to this component
+    const clientId = `${environment.googleClientId}`;
+    const redirectUri = `${environment.googleRedirectUri}`; // Points back to this component
     const scope = 'profile email';
     const responseType = 'code';
 

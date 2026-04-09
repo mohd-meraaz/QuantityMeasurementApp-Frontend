@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { HttpClient } from '@angular/common/http';
 import { AuthService } from '../../services/auth.service';
-import { environment } from '../../../environment/environment';
-
+import { environment } from '../../../environments/environment';
 
 @Component({
   selector: 'app-dashboard',
@@ -31,7 +30,7 @@ export class DashboardComponent implements OnInit {
   units: any = {
     LengthUnit: ["FEET", "INCHES", "YARD", "CENTIMETERS"],
     WeightUnit: ["KILOGRAM", "GRAM", "POUND"],
-    VolumeUnit: ["MILLILITRE", "LITRE", "GALLON"],
+    VolumeUnit: ["MILLILITER", "LITRE", "GALLON"],
     TemperatureUnit: ["CELSIUS", "FAHRENHEIT", "KELVIN"]
   };  
 
@@ -51,7 +50,7 @@ export class DashboardComponent implements OnInit {
 
   setAction(action: string) {
     this.selectedAction = action;
-    this.isArithmeticMode = action === 'add' || action === 'subtract' ||action === 'multiply' || action === 'divide';
+    this.isArithmeticMode = action === 'add' || action === 'subtract' || action === 'divide';
   }
 
   calculate() {
