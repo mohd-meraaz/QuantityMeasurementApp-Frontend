@@ -22,6 +22,7 @@ export class DashboardComponent implements OnInit {
   isArithmeticMode = true;
   result: any = null;
   error: string | null = null;
+  isDarkMode = true;
 
   // History states
   history: any[] = [];
@@ -36,7 +37,27 @@ export class DashboardComponent implements OnInit {
 
   calc = { val1: 1, val2: 1, unit1: '', unit2: '', operator: 'add' };
 
-  ngOnInit() { this.updateUnits(); }
+  ngOnInit() { 
+    this.updateUnits();
+    // Load theme preference from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      this.isDarkMode = false;
+    } else {
+      this.isDarkMode = true;
+    }
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
+  }
 
   updateUnits() {
     this.calc.unit1 = this.units[this.selectedType][0];

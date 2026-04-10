@@ -1,175 +1,234 @@
-:root{
-    color: #fff;
-}
-body {
-    background-color: #FBE8CE; /* Warm cream background */
-    display: flex;
-    font-family: Arial, sans-serif;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    margin: 0;
-}
+/* ============================================
+   AUTH COMPONENT - MODERN MINIMALIST DESIGN
+   ============================================ */
 
 .auth-wrapper {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: var(--space-md);
 }
 
-/* Note: Kept the original class name '.from-container' to match your HTML */
 .from-container {
-    background-color: white;
-    padding: 25px;
-    border-radius: 12px;
-    width: 380px;
-    /* Softened the shadow and tinted it with the olive green */
-    box-shadow: rgba(154, 177, 122, 0.25) 0px 20px 50px;
+  width: 100%;
+  max-width: 420px;
+  background: var(--card-bg);
+  border: 1px solid var(--border-color);
+  border-radius: var(--radius-xl);
+  padding: var(--space-2xl);
+  box-shadow: var(--shadow-md);
+  backdrop-filter: blur(10px);
 }
 
-/* Tabs UI */
+.from-container h2 {
+  text-align: center;
+  margin-bottom: var(--space-xl);
+  font-size: 1.75rem;
+}
+
+/* TAB NAVIGATION */
 .choose-option {
-    display: flex;
-    justify-content: space-around;
-    margin-bottom: 25px;
-    border-bottom: 2px solid #E4DFB5; /* Soft beige underline */
+  display: flex;
+  gap: var(--space-md);
+  margin-bottom: var(--space-2xl);
+  border-bottom: 2px solid var(--border-color);
+  position: relative;
 }
 
 .choose-option button {
-    background: none;
-    border: none;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
-    cursor: pointer;
-    color: #888;
-    transition: 0.3s;
-    position: relative;
+  flex: 1;
+  background: none;
+  border: none;
+  padding: var(--space-md) var(--space-lg);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  color: var(--text-tertiary);
+  transition: all var(--transition-base);
+  position: relative;
+  text-align: center;
 }
 
-/* Highlight effect using Primary Olive Green */
 .choose-option button.active {
-    color: #9AB17A; 
+  color: var(--olive);
 }
 
 .choose-option button.active::after {
-    content: '';
-    position: absolute;
-    bottom: -2px;
-    left: 0;
-    width: 100%;
-    height: 3px;
-    background-color: #9AB17A;
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--olive), transparent);
 }
 
-.f-group { 
-    margin-bottom: 15px; 
+/* FORM GROUPS */
+.f-group {
+  margin-bottom: var(--space-lg);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
 }
 
-label { 
-    display: block; 
-    margin-bottom: 5px; 
-    font-size: 14px; 
-    color: #4a4a4a; /* Slightly softened text color */
+label {
+  font-size: 0.95rem;
+  font-weight: var(--font-weight-semibold);
+  color: var(--text-primary);
 }
 
-input { 
-    width: 100%; 
-    padding: 10px; 
-    border: 1px solid #C3CC9B; /* Sage green border */
-    border-radius: 4px; 
-    box-sizing: border-box; 
-    transition: border-color 0.3s, box-shadow 0.3s;
+input, select {
+  padding: var(--space-md);
+  font-size: 1rem;
+  color: var(--text-primary);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-md);
+  font-family: var(--font-family);
+  transition: all var(--transition-base);
 }
 
-/* Added focus state for better accessibility and polish */
-input:focus {
-    outline: none;
-    border-color: #9AB17A;
-    box-shadow: 0 0 5px rgba(154, 177, 122, 0.3);
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--olive);
+  box-shadow: 0 0 0 3px rgba(154, 177, 122, 0.1);
+  background: var(--bg-secondary);
 }
 
+input::placeholder {
+  color: var(--text-tertiary);
+}
+
+/* SUBMIT BUTTON */
 .submit-btn {
-    width: 100%;
-    padding: 12px;
-    background-color: #9AB17A; /* Primary Olive Green */
-    border: none;
-    color: white;
-    border-radius: 4px;
-    font-weight: bold;
-    cursor: pointer;
-    transition: 0.3s;
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: linear-gradient(135deg, var(--olive), var(--olive-dark));
+  color: var(--bg-primary);
+  border: none;
+  border-radius: var(--radius-lg);
+  font-size: 1rem;
+  font-weight: var(--font-weight-semibold);
+  cursor: pointer;
+  transition: all var(--transition-base);
+  box-shadow: var(--shadow-md);
+  margin-top: var(--space-md);
 }
 
 .submit-btn:hover {
-    background-color: #88a167; /* Slightly darker calculated shade for hover */
-    box-shadow: 0 4px 15px rgba(154, 177, 122, 0.4); /* Tinted glow */
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
 }
 
+.submit-btn:active {
+  transform: translateY(0);
+}
+
+/* DIVIDER */
 #text-mid {
-    width: 100%;
-    text-align: center;
-    border-bottom: 1px solid #E4DFB5; /* Beige line */
-    line-height: 0.1em;
-    margin: 25px 0;
+  display: flex;
+  align-items: center;
+  margin: var(--space-2xl) 0;
+  color: var(--text-tertiary);
+  font-size: 0.875rem;
 }
 
-#text-mid span { 
-    background: #fff;
-    padding: 0 10px;
-    color: #888;
+#text-mid span {
+  background: var(--card-bg);
+  padding: 0 var(--space-md);
+  flex-shrink: 0;
 }
 
+#text-mid::before,
+#text-mid::after {
+  content: '';
+  flex: 1;
+  height: 1px;
+  background: var(--border-color);
+}
+
+/* TOGGLE LINK */
 #btn-choice {
-    cursor: pointer; 
-    color: #9AB17A; /* Primary Olive Green */
-    font-weight: bold; 
-    transition: color 0.3s;
+  cursor: pointer;
+  color: var(--olive);
+  font-weight: var(--font-weight-semibold);
+  transition: color var(--transition-base);
 }
 
 #btn-choice:hover {
-    text-decoration: underline; 
-    color: #88a167;
+  color: var(--olive-light);
 }
 
-/* Kept error alerts reddish for standard UI/UX semantics, but softened slightly */
+/* ERROR ALERT */
 .error-alert {
-    background-color: #fff5f5;
-    color: #c0392b;
-    padding: 15px;
-    border-radius: 8px;
-    border: 1px solid #fab1a0;
-    margin-bottom: 20px;
-    text-align: center;
-    font-weight: bold;
+  background: rgba(192, 57, 43, 0.1);
+  color: #e74c3c;
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  border: 1px solid rgba(192, 57, 43, 0.2);
+  margin-bottom: var(--space-lg);
+  font-size: 0.95rem;
+  text-align: center;
+  font-weight: var(--font-weight-medium);
+  animation: slideDown 0.3s ease;
 }
 
-/* Google login button style */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* GOOGLE LOGIN BUTTON */
 .google-btn {
-    width: 100%;
-    padding: 10px;
-    background-color: #E4DFB5; /* Pale beige */
-    border: 1px solid #C3CC9B; /* Sage green border */
-    border-radius: 6px;
-    cursor: pointer;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    color: #333;
-
-    font-weight: 600;
-    transition: all 0.3s ease;
-}
-
-.google-btn img {
-    width: 20px;
-    height: 20px;
+  width: 100%;
+  padding: var(--space-md) var(--space-lg);
+  background: var(--bg-secondary);
+  border: 1.5px solid var(--border-color);
+  border-radius: var(--radius-lg);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-md);
+  color: var(--text-primary);
+  font-weight: var(--font-weight-semibold);
+  font-size: 1rem;
+  transition: all var(--transition-base);
+  font-family: var(--font-family);
 }
 
 .google-btn:hover {
-    background-color: #C3CC9B; /* Transitions to Sage Green on hover */
-    box-shadow: 0 2px 8px rgba(154, 177, 122, 0.2);
+  background: var(--card-bg-hover);
+  border-color: var(--border-hover);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.google-btn img {
+  width: 20px;
+  height: 20px;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+  .from-container {
+    padding: var(--space-xl) var(--space-lg);
+    border-radius: var(--radius-lg);
+  }
+
+  .choose-option button {
+    padding: var(--space-md);
+    font-size: 0.95rem;
+  }
+
+  #text-mid {
+    margin: var(--space-lg) 0;
+  }
 }

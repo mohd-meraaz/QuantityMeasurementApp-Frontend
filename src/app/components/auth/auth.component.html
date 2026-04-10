@@ -1,5 +1,12 @@
 <div class="auth-wrapper">
     <div class="from-container">
+        <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 32px;">
+            <h2 style="text-align: left; margin: 0; color: var(--olive);">Welcome Back</h2>
+            <button class="theme-toggle" (click)="toggleTheme()" title="Toggle theme" style="cursor: pointer; background: var(--card-bg); border: 1px solid var(--border-color); border-radius: 999px; width: 40px; height: 40px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; transition: all 0.25s ease;">
+                {{ isDarkMode ? '☀️' : '🌙' }}
+            </button>
+        </div>
+        
         <div class="choose-option">
             <button [class.active]="isLoginMode" (click)="isLoginMode = true">Login</button>
             <button [class.active]="!isLoginMode" (click)="isLoginMode = false">Signup</button>
@@ -8,19 +15,19 @@
         <form (ngSubmit)="onSubmit()">
             <div class="f-group" *ngIf="!isLoginMode">
                 <label>Username</label>
-                <input type="text" [(ngModel)]="authData.username" name="username" required>
+                <input type="text" [(ngModel)]="authData.username" name="username" placeholder="Choose a username" required>
             </div>
             <div class="f-group">
                 <label>Email</label>
-                <input type="email" [(ngModel)]="authData.email" name="email" required>
+                <input type="email" [(ngModel)]="authData.email" name="email" placeholder="your@email.com" required>
             </div>
             <div class="f-group">
                 <label>Password</label>
-                <input type="password" [(ngModel)]="authData.password" name="password" required>
+                <input type="password" [(ngModel)]="authData.password" name="password" placeholder="Enter your password" required>
             </div>
             <div class="f-group" *ngIf="!isLoginMode">
                 <label>Confirm Password</label>
-                <input type="password" [(ngModel)]="authData.confirmPassword" name="confirmPassword" required>
+                <input type="password" [(ngModel)]="authData.confirmPassword" name="confirmPassword" placeholder="Confirm your password" required>
             </div>
                 <div *ngIf="errorMessage" class="error-alert">{{ errorMessage }}</div>
             <button type="submit" class="submit-btn">{{ isLoginMode ? 'Login' : 'Create Account' }}</button>

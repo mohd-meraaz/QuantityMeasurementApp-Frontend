@@ -1,54 +1,161 @@
 <div class="welcome-container">
 
-  <!-- NAVBAR -->
-  <nav class="nav">
-    <span class="logo">Quantity Measurement App</span>
-    <!-- <button class="btn-outline" (click)="goToLogin()">Get Started</button> -->
-  </nav>
+  <!-- HEADER -->
+  <header class="header">
+    <div class="logo">Quantity Measurement</div>
+    <div class="nav-actions">
+      <button class="theme-toggle" (click)="toggleTheme()" title="Toggle theme">
+        {{ isDarkMode ? '☀️' : '🌙' }}
+      </button>
+      <button class="btn btn-primary btn-sm" (click)="goToLogin()">Login / Signup</button>
+    </div>
+  </header>
 
   <!-- HERO SECTION -->
-  <main class="hero">
-    <h1>Precision at your fingertips.</h1>
-    <p>
-      Convert, Compare, and Calculate quantities across Length, Weight, 
-      Volume, and Temperature instantly.
-    </p>
-
-    <div class="cta-group">
-      <button class="btn-primary" (click)="goToLogin()">Login / Signup</button>
+  <section class="hero">
+    <div class="hero-content">
+      <h1>Precision at your fingertips</h1>
+      <p>
+        Convert, compare, and calculate quantities across Length, Weight, 
+        Volume, and Temperature with instant, accurate results.
+      </p>
+      <div class="hero-cta">
+        <button class="btn btn-primary btn-lg" (click)="goToLogin()">Get Started</button>
+        <button class="btn btn-secondary btn-lg">Learn More</button>
+      </div>
     </div>
-  </main>
-
-  <!-- FEATURES -->
-  <section class="features">
-    <div class="feature-card">
-      <div class="icon">📏</div>
-      <h3>Length</h3>
-      <p>Convert between meters, kilometers, miles & more.</p>
+    
+    <div class="hero-visual">
+      <div class="measurement-card">
+        <div class="icon">📏</div>
+        <h4>Length</h4>
+        <p>Meters, Miles, Km</p>
+      </div>
+      <div class="measurement-card">
+        <div class="icon">⚖️</div>
+        <h4>Weight</h4>
+        <p>Kg, Pounds, Oz</p>
+      </div>
+      <div class="measurement-card">
+        <div class="icon">🧪</div>
+        <h4>Volume</h4>
+        <p>Liters, Gallons</p>
+      </div>
+      <div class="measurement-card">
+        <div class="icon">🌡️</div>
+        <h4>Temperature</h4>
+        <p>Celsius, Fahrenheit</p>
+      </div>
     </div>
+  </section>
 
-    <div class="feature-card">
-      <div class="icon">⚖️</div>
-      <h3>Weight</h3>
-      <p>Accurate conversions across multiple weight units.</p>
+  <!-- FEATURES SECTION -->
+  <section class="features-section">
+    <div class="features-header">
+      <h2>Powerful Features</h2>
+      <p>Everything you need for accurate quantity conversions and calculations</p>
     </div>
+    
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feature-icon">🔄</div>
+        <h3>Instant Conversion</h3>
+        <p>Convert between different units instantly with high precision and accuracy</p>
+      </div>
 
-    <div class="feature-card">
-      <div class="icon">🧪</div>
-      <h3>Volume</h3>
-      <p>Handle liquid and solid measurements easily.</p>
+      <div class="feature-card">
+        <div class="feature-icon">📊</div>
+        <h3>Multiple Units</h3>
+        <p>Support for dozens of units across all measurement categories</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🧮</div>
+        <h3>Advanced Calculations</h3>
+        <p>Perform complex arithmetic operations with any measurements</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📝</div>
+        <h3>Calculation History</h3>
+        <p>Keep track of all your conversions and calculations</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">🔒</div>
+        <h3>Secure & Fast</h3>
+        <p>Lightning-fast performance with your data always secure</p>
+      </div>
+
+      <div class="feature-card">
+        <div class="feature-icon">📱</div>
+        <h3>All Devices</h3>
+        <p>Works perfectly on desktop, tablet, and mobile devices</p>
+      </div>
     </div>
+  </section>
 
-    <div class="feature-card">
-      <div class="icon">🌡️</div>
-      <h3>Temperature</h3>
-      <p>Switch between Celsius, Fahrenheit, Kelvin.</p>
+  <!-- BENEFITS SECTION -->
+  <section class="benefits-section">
+    <div class="benefits-header">
+      <h2>Why Choose Us?</h2>
+    </div>
+    
+    <div class="benefits-grid">
+      <div class="benefit-item">
+        <div class="icon">⚡</div>
+        <h4>Lightning Fast</h4>
+        <p>Get results instantly without any delays</p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="icon">🎯</div>
+        <h4>100% Accurate</h4>
+        <p>Industry-standard precision for all conversions</p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="icon">🎨</div>
+        <h4>Beautiful Design</h4>
+        <p>Modern, intuitive interface you'll love to use</p>
+      </div>
+
+      <div class="benefit-item">
+        <div class="icon">🛡️</div>
+        <h4>Privacy First</h4>
+        <p>Your data never leaves your device</p>
+      </div>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer class="footer">
-    <p>© 2026 Quantity Measurement App • Built for precision ⚡</p>
+    <div class="footer-content">
+      <div class="footer-section">
+        <h5>Product</h5>
+        <a href="#">Features</a>
+        <a href="#">Pricing</a>
+        <a href="#">Security</a>
+        <a href="#">Updates</a>
+      </div>
+      <div class="footer-section">
+        <h5>Company</h5>
+        <a href="#">About</a>
+        <a href="#">Blog</a>
+        <a href="#">Careers</a>
+        <a href="#">Contact</a>
+      </div>
+      <div class="footer-section">
+        <h5>Legal</h5>
+        <a href="#">Privacy</a>
+        <a href="#">Terms</a>
+        <a href="#">License</a>
+        <a href="#">Cookies</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2026 Quantity Measurement App • Built with precision and care</p>
+    </div>
   </footer>
 
 </div>

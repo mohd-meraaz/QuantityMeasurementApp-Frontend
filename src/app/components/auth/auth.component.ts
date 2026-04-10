@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { AuthService } from '../../services/auth.service';
@@ -11,14 +11,23 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './auth.component.html',
   styleUrls: ['./auth.component.css']
 })
-export class AuthComponent {
+export class AuthComponent implements OnInit {
   isLoginMode = true;
   errorMessage = '';
+  isDarkMode = true;
   private authService = inject(AuthService);
   private router = inject(Router);
   private route = inject(ActivatedRoute);
 
   ngOnInit() {
+    // Load theme preference from localStorage
+    const savedTheme = localStorage.getItem('theme');
+    if (savedTheme === 'light') {
+      this.isDarkMode = false;
+    } else {
+      this.isDarkMode = true;
+    }
+
     // Check if we are returning from Google with a code
     this.route.queryParams.subscribe(params => {
       const code = params['code'];
@@ -26,6 +35,17 @@ export class AuthComponent {
         this.processGoogleLogin(code);
       }
     });
+  }
+
+  toggleTheme() {
+    this.isDarkMode = !this.isDarkMode;
+    if (this.isDarkMode) {
+      document.documentElement.removeAttribute('data-theme');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+      localStorage.setItem('theme', 'light');
+    }
   }
 
   loginWithGoogle() {
