@@ -1,5 +1,8 @@
+:root{
+    color: #fff;
+}
 body {
-    background-color: #f4f4f9;
+    background-color: #FBE8CE; /* Warm cream background */
     display: flex;
     font-family: Arial, sans-serif;
     justify-content: center;
@@ -15,20 +18,22 @@ body {
     align-items: center;
 }
 
- .from-container{
+/* Note: Kept the original class name '.from-container' to match your HTML */
+.from-container {
     background-color: white;
     padding: 25px;
     border-radius: 12px;
     width: 380px;
-    box-shadow: rgba(0, 0, 0, 0.2) 0px 20px 50px;
+    /* Softened the shadow and tinted it with the olive green */
+    box-shadow: rgba(154, 177, 122, 0.25) 0px 20px 50px;
 }
 
-/* this is tabs UI */
+/* Tabs UI */
 .choose-option {
     display: flex;
     justify-content: space-around;
     margin-bottom: 25px;
-    border-bottom: 2px solid #eee;
+    border-bottom: 2px solid #E4DFB5; /* Soft beige underline */
 }
 
 .choose-option button {
@@ -43,9 +48,9 @@ body {
     position: relative;
 }
 
-/* The will highlight effect */
+/* Highlight effect using Primary Olive Green */
 .choose-option button.active {
-    color: rgb(42, 38, 247);
+    color: #9AB17A; 
 }
 
 .choose-option button.active::after {
@@ -55,29 +60,40 @@ body {
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: rgb(42, 38, 247);
+    background-color: #9AB17A;
 }
 
 .f-group { 
     margin-bottom: 15px; 
 }
+
 label { 
     display: block; 
     margin-bottom: 5px; 
     font-size: 14px; 
+    color: #4a4a4a; /* Slightly softened text color */
 }
+
 input { 
     width: 100%; 
     padding: 10px; 
-    border: 1px solid #ccc; 
+    border: 1px solid #C3CC9B; /* Sage green border */
     border-radius: 4px; 
     box-sizing: border-box; 
+    transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+/* Added focus state for better accessibility and polish */
+input:focus {
+    outline: none;
+    border-color: #9AB17A;
+    box-shadow: 0 0 5px rgba(154, 177, 122, 0.3);
 }
 
 .submit-btn {
     width: 100%;
     padding: 12px;
-    background-color: rgb(42, 38, 247);
+    background-color: #9AB17A; /* Primary Olive Green */
     border: none;
     color: white;
     border-radius: 4px;
@@ -87,14 +103,14 @@ input {
 }
 
 .submit-btn:hover {
-    background-color: rgb(30, 25, 200);
-    box-shadow: 0 4px 15px rgba(42, 38, 247, 0.4);
+    background-color: #88a167; /* Slightly darker calculated shade for hover */
+    box-shadow: 0 4px 15px rgba(154, 177, 122, 0.4); /* Tinted glow */
 }
 
 #text-mid {
     width: 100%;
     text-align: center;
-    border-bottom: 1px solid #ddd;
+    border-bottom: 1px solid #E4DFB5; /* Beige line */
     line-height: 0.1em;
     margin: 25px 0;
 }
@@ -104,18 +120,23 @@ input {
     padding: 0 10px;
     color: #888;
 }
+
 #btn-choice {
     cursor: pointer; 
-    color: rgb(42, 38, 247); 
+    color: #9AB17A; /* Primary Olive Green */
     font-weight: bold; 
-}
-#btn-choice:hover {
-    text-decoration: underline; 
+    transition: color 0.3s;
 }
 
-.error-alert{
-    background-color: #ffeded;
-    color: #d63031;
+#btn-choice:hover {
+    text-decoration: underline; 
+    color: #88a167;
+}
+
+/* Kept error alerts reddish for standard UI/UX semantics, but softened slightly */
+.error-alert {
+    background-color: #fff5f5;
+    color: #c0392b;
     padding: 15px;
     border-radius: 8px;
     border: 1px solid #fab1a0;
@@ -124,13 +145,12 @@ input {
     font-weight: bold;
 }
 
-
-/* google login button style */
+/* Google login button style */
 .google-btn {
     width: 100%;
     padding: 10px;
-    background-color: #fff;
-    border: 1px solid #ddd;
+    background-color: #E4DFB5; /* Pale beige */
+    border: 1px solid #C3CC9B; /* Sage green border */
     border-radius: 6px;
     cursor: pointer;
 
@@ -138,6 +158,7 @@ input {
     align-items: center;
     justify-content: center;
     gap: 10px;
+    color: #333;
 
     font-weight: 600;
     transition: all 0.3s ease;
@@ -149,6 +170,6 @@ input {
 }
 
 .google-btn:hover {
-    background-color: #f7f7f7;
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    background-color: #C3CC9B; /* Transitions to Sage Green on hover */
+    box-shadow: 0 2px 8px rgba(154, 177, 122, 0.2);
 }

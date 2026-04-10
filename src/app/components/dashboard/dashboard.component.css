@@ -1,77 +1,59 @@
-/* --- Base Reset --- */
-*, ::before, ::after {
-    box-sizing: border-box;
-    border-width: 0;
-    border-style: solid;
-    border-color: #e5e7eb;
-}
-
-html {
-    line-height: 1.5;
-    -webkit-text-size-adjust: 100%;
-    tab-size: 4;
-    font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
-}
-
-/* --- Root Variables --- */
 :root {
-    --primary: #2563eb;
-    --primary-light: #3b82f6;
-    --primary-bg: #eff6ff;
+    --olive: #9AB17A;
+    --sage: #C3CC9B;
+    --sand: #E4DFB5;
+    --cream: #FBE8CE;
 
-    --bg: #f9fafb;
-    --card-bg: #ffffff;
+    --bg: #F1E6C8;
+    --bg-soft: #E9DDBF;
+    --card-bg: rgba(255, 255, 255, 0.7);
 
-    --text-main: #111827;
-    --text-muted: #6b7280;
+    --text-main: #2A3320;
+    --text-muted: #5f6f4c;
 
-    --border: #e5e7eb;
+    --border: rgba(154, 177, 122, 0.35);
+    --shadow: 0 20px 50px rgba(120, 130, 90, 0.25);
 
-    --shadow: 0 10px 25px rgba(0, 0, 0, 0.05);
-
-    --error: #dc2626;
-    --error-bg: #fef2f2;
-    --error-border: #fecaca;
-
-    --success: #16a34a;
+    --radius: 40px;
+    --transition: all 0.3s ease;
 }
 
-/* --- Global Styles --- */
+/* GLOBAL */
 body {
     margin: 0;
-    background: var(--bg);
-    font-family: 'Segoe UI', Roboto, sans-serif;
+    font-family: 'Inter', sans-serif;
     color: var(--text-main);
+    background:
+        radial-gradient(circle at top left, rgba(154,177,122,0.25), transparent 35%),
+        radial-gradient(circle at bottom right, rgba(195,204,155,0.18), transparent 30%),
+        linear-gradient(135deg, #F1E6C8 0%, #E9DDBF 50%, #E4DFB5 100%);
 }
 
-/* --- Header --- */
+/* HEADER */
 .header {
-    background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 100%);
-    border-radius: 10%;
+    background: linear-gradient(135deg, #9AB17A, #7f9363);
+    border-radius: var(--radius);
     color: white;
     padding: 1.5rem 2rem;
-    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.2);
+    box-shadow: var(--shadow);
 }
 
 .header-content {
     max-width: 1000px;
-    margin: 0 auto;
+    margin: auto;
     display: flex;
     justify-content: space-between;
     align-items: center;
 }
 
-/* --- Layout --- */
+/* LAYOUT */
 .main-wrapper {
     max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
 }
 
-.section {
-    margin-bottom: 2rem;
-}
-
+/* SECTION TITLE */
 .section-title {
     font-size: 0.85rem;
     text-transform: uppercase;
@@ -80,52 +62,40 @@ body {
     margin-bottom: 1rem;
 }
 
-/* --- Type Cards --- */
+/* TYPE CARDS */
 .type-grid {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 30px;
+    gap: 25px;
 }
 
 .type-card {
     background: var(--card-bg);
-    width: 100px;
-    height: 100px;
-    border-radius: 10%;
+    width: 110px;
+    height: 110px;
+    border-radius: var(--radius);
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
-    cursor: pointer;
-    transition: all 0.3s ease;
+    align-items: center;
     box-shadow: var(--shadow);
+    cursor: pointer;
+    transition: var(--transition);
     border: 2px solid transparent;
 }
 
-.type-card span {
-    font-size: 0.75rem;
-    font-weight: 600;
-    margin-top: 5px;
-}
-
-.icon-box {
-    font-size: 1.5rem;
-}
-
 .type-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.2);
-    border-color: #93c5fd;
+    transform: translateY(-6px);
+    border-color: var(--olive);
 }
 
 .type-card.active {
-    border-color: var(--primary);
-    background: var(--primary-bg);
-    color: var(--primary);
+    background: var(--olive);
+    color: white;
 }
 
-/* --- Action Buttons --- */
+/* ACTION BUTTONS */
 .action-grid {
     display: flex;
     gap: 15px;
@@ -135,400 +105,129 @@ body {
 
 .action-btn {
     flex: 1;
-    min-width: 120px;
     padding: 15px;
-    background-color: #f2f2f2;
-    border-radius: 8px;
-    font-weight: 600;
-    cursor: pointer;
+    border-radius: var(--radius);
+    background: var(--card-bg);
     box-shadow: var(--shadow);
-    transition: all 0.3s ease;
-    color: var(--text-main);
-}
-
-.action-btn:hover {
-    transform: translateY(-2px);
-    box-shadow: 0 15px 25px rgba(37, 99, 235, 0.15);
+    cursor: pointer;
+    transition: var(--transition);
 }
 
 .action-btn.active {
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    background: var(--olive);
     color: white;
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
-/* --- Calculator Card --- */
+/* CALCULATOR CARD */
 .calculator-card {
-    background: white;
+    background: var(--card-bg);
     padding: 30px;
-    border-radius: 15px;
+    border-radius: var(--radius);
     box-shadow: var(--shadow);
 }
 
-/* --- Inputs --- */
+/* INPUTS */
 .input-group {
     display: flex;
     gap: 20px;
 }
 
-.input-field {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-}
-
 .input-field label {
     font-size: 0.75rem;
     font-weight: bold;
+    color: var(--text-muted);
 }
 
-.input-field input, 
+.input-field input,
 .input-field select {
-    padding: 15px;
+    padding: 14px;
+    border-radius: var(--radius);
     border: 1px solid var(--border);
-    border-radius: 6px;
-    font-size: 1.1rem;
-    outline: none;
-    background: rgb(248, 248, 248);
+    background: rgba(255,255,255,0.75);
     margin-top: 5px;
 }
 
-.input-field input:focus, 
+.input-field input:focus,
 .input-field select:focus {
-    border-color: var(--primary);
-    box-shadow: 0 0 0 2px rgba(0, 81, 255, 0.15);
+    border-color: var(--olive);
+    box-shadow: 0 0 10px rgba(154,177,122,0.3);
 }
 
-/* --- Calculate Button --- */
+/* BUTTON */
 .calculate-btn {
     width: 100%;
     margin-top: 30px;
     padding: 15px;
-    background: linear-gradient(135deg, #1d4ed8 0%, #2563eb 100%);
+    border-radius: var(--radius);
+    background: var(--olive);
     color: white;
-    border-radius: 8px;
     font-weight: bold;
     cursor: pointer;
-    transition: 0.3s;
 }
 
 .calculate-btn:hover {
     transform: translateY(-2px);
-    box-shadow: 0 10px 20px rgba(37, 99, 235, 0.3);
 }
 
-/* --- Result Display --- */
+/* RESULT */
 .result-display {
     margin-top: 30px;
     padding: 20px;
-    border-left: 4px solid var(--primary);
-    background: var(--primary-bg);
-    box-shadow: #f02eaa66 -5px 5px, rgba(240, 46, 170, 0.3) -10px 10px, rgba(240, 46, 170, 0.2) -15px 15px, rgba(240, 46, 170, 0.1) -20px 20px, rgba(240, 46, 170, 0.05) -25px 25px;
-    border: 1px solid #f02eaa66;
-    border-radius: 10%;
-}
-
-.result-row {
-    display: flex;
-    align-items: baseline;
-    gap: 10px;
+    border-radius: var(--radius);
+    background: var(--sand);
+    border-left: 5px solid var(--olive);
 }
 
 .result-row h2 {
-    margin: 0;
     font-size: 2.5rem;
-    color: var(--primary);
+    color: var(--olive);
 }
 
-/* --- Operator Dropdown --- */
-.operator-dropdown {
-    padding: 10px;
-    border: 1px solid var(--border);
-    border-radius: 8px;
-    background-color: #f2f2f2;
-    font-weight: bold;
-    font-size: 1.1rem;
-    cursor: pointer;
-}
-
-/* --- Error Banner --- */
+/* ERROR */
 .error-banner {
-    color: red;
+    background: #fff5f5;
+    color: #c0392b;
     padding: 15px;
-    border-radius: 8px;
-    border: 1px solid var(--error-border);
+    border-radius: var(--radius);
     margin-bottom: 20px;
     text-align: center;
-    font-weight: bold;
 }
 
-/* --- Logout Button --- */
+/* LOGOUT */
 .logout-btn {
-    background: rgba(255, 255, 255, 0.15);
+    background: rgba(255,255,255,0.3);
     color: white;
     padding: 10px 18px;
-    border-radius: 8px;
-    font-weight: 600;
+    border-radius: var(--radius);
     cursor: pointer;
-    backdrop-filter: blur(6px);
-    transition: all 0.25s ease;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: var(--transition);
 }
 
-/* Hover Effect (Red hint for logout action) */
 .logout-btn:hover {
-    background: #dc2626;
-    border-color: #dc2626;
-    color: white;
-    transform: translateY(-1px);
-    box-shadow: 0 6px 15px rgba(220, 38, 38, 0.3);
+    background: #c0392b;
 }
 
-/* Click Effect */
-.logout-btn:active {
-    transform: scale(0.97);
-}
-
-/* Optional: Focus (Accessibility) */
-.logout-btn:focus {
-    outline: none;
-    box-shadow: 0 0 0 3px rgba(255, 255, 255, 0.4);
-}
-
-/* --- Header Additions --- */
-.header-actions {
-    display: flex;
-    gap: 15px;
-    align-items: center;
-}
-
-.history-btn {
-    background: transparent;
-    color: white;
-    border: 1px solid white;
-    padding: 8px 15px;
-    border-radius: 6px;
-    cursor: pointer;
-    font-weight: 500;
-    transition: 0.3s;
-}
-
-.history-btn:hover {
-    background: white;
-    color: var(--primary);
-}
-
-/* --- Modal Overlay --- */
+/* MODAL */
 .modal-overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.6);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
+    background: rgba(0,0,0,0.4);
     backdrop-filter: blur(4px);
 }
 
 .modal-container {
-    background: white;
-    width: 90%;
-    max-width: 800px;
-    max-height: 80vh;
-    border-radius: 12px;
-    display: flex;
-    flex-direction: column;
-    box-shadow: 0 20px 40px rgba(0,0,0,0.2);
-    animation: fadeIn 0.3s ease-out;
+    background: var(--card-bg);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
 }
 
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-.modal-header {
-    padding: 20px;
-    border-bottom: 1px solid var(--border);
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.modal-header h3 { margin: 0; color: var(--primary); }
-
-.close-btn {
-    font-size: 2rem;
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: var(--text-muted);
-}
-
-/* --- History Table --- */
-.modal-body {
-    padding: 20px;
-    overflow-y: auto;
-}
-
-.history-table {
-    width: 100%;
-    border-collapse: collapse;
-    font-size: 0.9rem;
-}
-
+/* TABLE */
 .history-table th {
-    text-align: left;
-    background: var(--bg);
-    padding: 12px;
-    color: var(--text-muted);
-    text-transform: uppercase;
-    font-size: 0.75rem;
-}
-
-.history-table td {
-    padding: 12px;
-    border-bottom: 1px solid var(--border);
+    background: var(--bg-soft);
 }
 
 .op-cell {
-    font-weight: bold;
-    color: var(--primary);
+    color: var(--olive);
 }
 
 .res-cell {
-    font-weight: bold;
-    color: var(--success);
-}
-
-/*RESPONSIVE STARTS HERE */
-
-/* Tablet */
-@media (max-width: 1024px) {
-
-  .header-content {
-    flex-direction: column;
-    gap: 15px;
-    text-align: center;
-  }
-
-  .header-actions {
-    justify-content: center;
-    flex-wrap: wrap;
-  }
-
-  .input-group {
-    flex-wrap: wrap;
-  }
-
-  .operator-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-}
-
-
-/* Mobile */
-@media (max-width: 768px) {
-
-  .main-wrapper {
-    margin: 20px auto;
-    padding: 0 12px;
-  }
-
-  .type-grid {
-    gap: 15px;
-  }
-
-  .type-card {
-    width: 80px;
-    height: 80px;
-  }
-
-  .action-grid {
-    flex-direction: column;
-  }
-
-  .input-group {
-    flex-direction: column;
-    gap: 15px;
-  }
-
-  .operator-container {
-    order: 2;
-    margin: 10px 0;
-  }
-
-  .input-field {
-    width: 100%;
-  }
-
-  .calculator-card {
-    padding: 20px;
-  }
-
-  .result-row {
-    flex-direction: column;
-    align-items: flex-start;
-  }
-
-  .result-row h2 {
-    font-size: 2rem;
-  }
-}
-
-
-/* Small Mobile (Real App Feel 📱) */
-@media (max-width: 480px) {
-
-  .header {
-    padding: 1rem;
-    border-radius: 10%;
-  }
-
-  .type-card {
-    width: 70px;
-    height: 70px;
-  }
-
-  .type-card span {
-    font-size: 0.65rem;
-  }
-
-  .icon-box {
-    font-size: 1.2rem;
-  }
-
-  .action-btn {
-    padding: 12px;
-    font-size: 0.9rem;
-  }
-
-  .input-field input,
-  .input-field select {
-    padding: 12px;
-    font-size: 1rem;
-  }
-
-  .calculate-btn {
-    padding: 12px;
-  }
-
-  .modal-container {
-    width: 95%;
-    max-height: 85vh;
-  }
-
-  .history-table {
-    font-size: 0.75rem;
-  }
-
-  .history-table th,
-  .history-table td {
-    padding: 8px;
-  }
+    color: #4CAF50;
 }
